@@ -1,0 +1,15 @@
+.navitem {
+  width: 100%;
+  padding-bottom: 1rem;
+
+  color: var(--primary-color-light);
+
+  filter: grayscale(100%) opacity(0.7);
+  transition: 600ms;
+
+  &:hover,
+  &.active {
+    color: var(--secondary-color-light);
+    filter: grayscale(0%) opacity(1);
+  }
+}

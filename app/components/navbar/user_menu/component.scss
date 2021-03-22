@@ -1,0 +1,21 @@
+.navbar:hover .user_menu .menu-icon {
+  display: block;
+}
+
+.user_menu {
+
+  .menu-icon {
+    margin-left: 1rem;
+    transform: rotate(-90deg);
+    transition: 600ms;
+  }
+
+  &.open .menu-name {
+    background-color: var(--secondary-bg-color-dark);
+    filter: grayscale(0%) opacity(1);
+  }
+
+  &.open .menu-icon {
+    transform: rotate(-270deg);
+  }
+}

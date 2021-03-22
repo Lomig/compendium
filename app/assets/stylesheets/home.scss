@@ -1,0 +1,14 @@
+.home {
+  .home--backdrop {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+    backdrop-filter: grayscale(65%) blur(3px);
+  }
+
+  .home--title {
+    font-family: 'GuardianTitlepieceWeb-Regular-Latin';
+  }
+
+  .home--description {
+    font-family: 'Guardian-Text-Egyp-Web-Reg-Latin';
+  }
+}

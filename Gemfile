@@ -32,6 +32,7 @@ gem 'devise-i18n'
 gem 'pundit'
 
 gem 'cloudinary'
+gem 'tailwindcss-rails'
 
 gem 'view_component', require: 'view_component/engine'
 

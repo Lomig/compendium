@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: var(--primary-bg-color-dark);
+  transition: width 600ms ease;
+
+  height: 100%;
+  width: 4rem;
+
+  .navbar--logo {
+    letter-spacing: 0.3ch;
+  }
+
+  .navbar--logo svg {
+    transform: rotate(0deg);
+    transition: 600ms;
+  }
+
+  &:hover {
+    width: 19rem;
+
+    .navbar--logo svg {
+      transform: rotate(-180deg);
+      margin-right: 1rem;
+    }
+
+    .navbar--text {
+      display: inline;
+    }
+  }
+}

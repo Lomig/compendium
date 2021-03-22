@@ -5,9 +5,9 @@
 ## <%= component "namespace1/namespace2/component_name" %> to target a specific component
 module ViewComponentHelper
   def component(name, context: nil, **args, &block)
-    return component_class_from_name(name).new(args).render_in(context, &block) if context
+    return component_class_from_name(name).new(**args).render_in(context, &block) if context
 
-    render(component_class_from_name(name).new(args), &block)
+    render(component_class_from_name(name).new(**args), &block)
   end
 
   private
@@ -22,7 +22,7 @@ module ViewComponentHelper
                        namespace
                      end
 
-    "#{ namespace_to_string(component_path) }::Component".constantize
+    "#{namespace_to_string(component_path)}::Component".constantize
   end
 
   def namespace_to_string(component_path)

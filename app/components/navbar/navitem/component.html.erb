@@ -1,0 +1,8 @@
+<% active = @highlight && controller_name.include?(@url[1..-1]) ? " active" : "" %>
+
+<li class="navitem <%= active %>">
+  <%= link_to(@url, class: "nav-link flex items-center ml-4", "data-turbo-frame": "_top") do %>
+    <%= content %>
+    <span class="navbar--text ml-4 hidden truncate"><%= @name %></span>
+  <% end %>
+</li>

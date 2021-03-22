@@ -1,6 +1,21 @@
+<%
+  path = Rails.root.join('app/components')
+  component_controllers = Dir[path.join("**/*.js{,m}")].collect { |file| Pathname.new(file) }.select(&:file?)
+
+  components_importmap = component_controllers.map do |filename|
+    module_filename = filename.relative_path_from(path)
+    module_name = module_filename.to_s.remove(module_filename.extname)
+    module_path = asset_path(module_filename)
+
+    %("#{module_name}": "#{module_path}")
+  end.join(", \n")
+
+  importmap = importmap_list_with_stimulus_from("app/assets/javascripts/controllers", "app/assets/javascripts/libraries")
+%>
+
 {
   "imports": { 
     "turbo": "<%= asset_path "turbo" %>",
-    <%= importmap_list_with_stimulus_from "app/assets/javascripts/controllers", "app/assets/javascripts/libraries" %>
+    <%= p [importmap, components_importmap].join(", \n")  %>
   }
 }
