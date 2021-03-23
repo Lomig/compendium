@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :games, only: %i[index show]
   resources :campains, only: %i[show]
 
-  resource :dashboard, only: [] do
+  resource :dashboard, only: %i[show] do
     member { get :me }
+  end
+
+  resource :user, only: %i[] do
+    member { patch :avatar_update }
   end
 end

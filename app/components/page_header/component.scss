@@ -1,0 +1,86 @@
+.page-header {
+  display: grid;
+  grid-template-rows: 12rem 5rem;
+  grid-template-columns: 2.5rem 10rem 1fr;
+  grid-template-areas: "banner banner banner"
+                       "margin avatar name";
+
+  .banner {
+    grid-area: banner;
+    width: 100%;
+
+    background-size: cover;
+    background-position-y: 25%;
+  }
+
+  .avatar {
+    grid-area: avatar;
+    position: relative;
+  
+    height: 10rem;
+    width: 10rem;
+
+    align-self: flex-end;
+    
+    .image {
+      height: 100%;
+      width: 100%;
+
+      overflow: hidden;
+
+      border: 2px solid white;
+      border-radius: 50%;
+    }
+
+    .cta {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+
+      background: rgba(214, 214, 214, 0.295);
+      opacity: 0;
+
+      border: 1px solid white;
+      border-radius: 50%;
+
+      transition: .3s all;
+
+      form {
+        display: none;
+      }
+    }
+
+    &:hover {
+      border: 0;
+
+        .cta {
+          opacity: 1;
+        }
+    
+        .image {
+          filter: blur(2px);
+        }
+      }
+    }
+
+
+  .name {
+    grid-area: name;
+    
+    margin-left: 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}

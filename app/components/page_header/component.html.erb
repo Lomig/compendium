@@ -1,0 +1,52 @@
+<turbo-frame id="<%= dom_id(@model) %>">
+<section class="page-header"
+         data-controller="page-header--component">
+  <div class="banner"
+       style="background-image: url('<%= banner_path %>');">
+  </div>
+  <h1 class="name"><%= @model.name %></h1>
+
+  <div class="avatar" data-action="click->page-header--component#fileSelection">
+    <div class="image">
+      <% if picture_path %>
+        <%= image_tag picture_path, alt: "picture of #{@model.name}" %>
+      <% else %>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          data-prefix="fad"
+          data-icon="question-circle"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          viewBox="0 0 496 496"
+          class="svg-inline--fa fa-question-circle fa-w-16 fa-9x">
+          <g
+            class="fa-group"
+            id="g14"
+            transform="translate(-8,-8)">
+            <path
+              fill="currentColor"
+              d="M 256,8 C 119,8 8,119.08 8,256 8,392.92 119,504 256,504 393,504 504,393 504,256 504,119 393,8 256,8 Z m 0,422 a 46,46 0 1 1 46,-46 46.05,46.05 0 0 1 -46,46 z M 296,298.67 V 300 a 12,12 0 0 1 -12,12 h -56 a 12,12 0 0 1 -12,-12 v -4 c 0,-41.06 31.13,-57.47 54.65,-70.66 20.17,-11.31 32.54,-19 32.54,-34 0,-19.82 -25.27,-33 -45.7,-33 -27.19,0 -39.44,13.14 -57.3,35.79 a 12,12 0 0 1 -16.67,2.13 L 148.82,170 a 12,12 0 0 1 -2.71,-16.26 C 173.4,113 208.16,90 262.66,90 319,90 379.19,134 379.19,192 379.19,269 296,270.21 296,298.67 Z"
+              class="text-secondary"
+              id="path10" />
+            <path
+              fill="currentColor"
+              d="m 256,338 a 46,46 0 1 0 46,46 46,46 0 0 0 -46,-46 z m 6.66,-248 c -54.5,0 -89.26,23 -116.55,63.76 a 12,12 0 0 0 2.71,16.24 l 34.7,26.31 a 12,12 0 0 0 16.67,-2.13 c 17.86,-22.65 30.11,-35.79 57.3,-35.79 20.43,0 45.7,13.14 45.7,33 0,15 -12.37,22.66 -32.54,34 C 247.13,238.53 216,254.94 216,296 v 4 a 12,12 0 0 0 12,12 h 56 a 12,12 0 0 0 12,-12 v -1.33 C 296,270.21 379.19,269 379.19,192 379.19,134 319,90 262.66,90 Z"
+              class="text-primary"
+              id="path12" />
+          </g>
+        </svg>
+      <% end %>
+    </div>
+
+    <div class="cta">
+      <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="camera" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="fa-camera h-8 w-8"><path fill="currentColor" d="M342.7 144H464v288H48V144h121.3l24-64h125.5l23.9 64zM324.3 32h-131c-20 0-37.9 12.4-44.9 31.1L136 96H48c-26.5 0-48 21.5-48 48v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V144c0-26.5-21.5-48-48-48h-88l-14.3-38c-5.8-15.7-20.7-26-37.4-26zM256 408c-66.2 0-120-53.8-120-120s53.8-120 120-120 120 53.8 120 120-53.8 120-120 120zm0-192c-39.7 0-72 32.3-72 72s32.3 72 72 72 72-32.3 72-72-32.3-72-72-72z" class="text-white"></path></svg>
+
+      <%= form_with(model: @model, url: url, data: { "page-header--component-target": "form" }) do |f| %>
+          <%= f.file_field field, "data-page-header--component-target": "input", "data-action": "change->page-header--component#submit" %>
+      <% end %>
+        
+    </div>
+  </div>
+</section>
+</turbo-frame>

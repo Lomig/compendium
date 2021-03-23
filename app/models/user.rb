@@ -10,4 +10,6 @@ class User < ApplicationRecord
                           foreign_key: 'game_master_id',
                           inverse_of: :game_master,
                           dependent: :nullify
+
+  has_one_attached :avatar
 end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Styles/ClassAndModuleChildren
 class <%= class_name %><%= sidecared %>Component < <%= parent_class %>
 <%- if initialize_signature -%>
   def initialize(<%= initialize_signature %>)
@@ -7,3 +8,4 @@ class <%= class_name %><%= sidecared %>Component < <%= parent_class %>
   end
 <%- end -%>
 end
+# rubocop:enable Styles/ClassAndModuleChildren

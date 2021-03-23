@@ -1,13 +1,21 @@
 .navbar:hover .user_menu .menu-icon {
-  display: block;
+  display: inline-block;
 }
 
 .user_menu {
-
   .menu-icon {
     margin-left: 1rem;
+    margin-right: 1rem;
     transform: rotate(-90deg);
     transition: 600ms;
+  }
+
+  .navbar--text {
+    width: 100%;
+  }
+
+  .avatar {
+    margin-bottom: 3px;
   }
 
   &.open .menu-name {

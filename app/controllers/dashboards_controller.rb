@@ -1,5 +1,3 @@
 class DashboardsController < ApplicationController
-  def me
-    skip_authorization
-  end
+  before_action :skip_authorization
 end
