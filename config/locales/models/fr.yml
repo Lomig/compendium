@@ -9,5 +9,5 @@ fr:
       campaigns: campagnes
     attributes:
       user:
-        name: nom d'affichage
-        email: courriel
+        name: Nom d'affichage
+        email: Courriel
