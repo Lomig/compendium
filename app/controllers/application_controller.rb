@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include Pundit
+  include ComponentHelpers
   before_action :authenticate_user!
 
   # Pundit: white-list approach.

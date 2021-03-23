@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Actions on current_user
 class UsersController < ApplicationController
   before_action :skip_authorization
 
@@ -12,11 +15,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dashboard_path }
       format.turbo_stream do
-        stream = turbo_stream.replace "user_#{current_user.id}" do
-          view_context.render(PageHeader::Component.new(model: current_user))
-        end
-
-        render turbo_stream: stream
+        stream_component(action: :replace, id: "user_#{current_user.id}", component: PageHeader, model: current_user)
       end
     end
   end
