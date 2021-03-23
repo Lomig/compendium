@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CampainPolicy < ApplicationPolicy
+class CampaignPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.where(game_master: @user)

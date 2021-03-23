@@ -15,7 +15,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dashboard_path }
       format.turbo_stream do
-        stream_component(action: :replace, id: current_user, component: PageHeader, model: current_user)
+        stream.add(action: :replace, id: current_user, component: PageHeader, model: current_user)
+              .add(action: :replace, id: 'user_icon', component: Navbar::UserMenu, user: current_user)
+              .render
       end
     end
   end

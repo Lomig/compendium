@@ -132,6 +132,7 @@ GEM
     nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -211,7 +212,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     stimulus-rails (0.2.3)
       rails (>= 6.0.0)
     tailwindcss-rails (0.3.3)
@@ -258,6 +258,7 @@ DEPENDENCIES
   hotwire-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pg
   pry-byebug
   pry-rails
   puma (~> 5.0)
@@ -267,7 +268,6 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  sqlite3 (~> 1.4)
   tailwindcss-rails
   tzinfo-data
   view_component

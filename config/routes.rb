@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :games, only: %i[index show]
-  resources :campains, only: %i[show]
+  resources :campaigns, only: %i[show]
 
   resource :dashboard, only: %i[show] do
     member { get :me }
   end
 
-  resource :user, only: %i[] do
+  resource :user, only: %i[update] do
     member { patch :avatar_update }
   end
 end

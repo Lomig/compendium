@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# GamesController
 class GamesController < ApplicationController
   def index
     @games = policy_scope(Game)
@@ -9,6 +10,6 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     authorize @game
 
-    @campains = policy_scope(@game.campains)
+    @campaigns = policy_scope(@game.campaigns)
   end
 end

@@ -1,1 +1,12 @@
 <%= component :page_header, model: current_user %>
+
+<section>
+  <h2>Mes informations</h2>
+  <%= form_with(model: current_user) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  <% end %>
+  
+</section>

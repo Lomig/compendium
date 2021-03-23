@@ -1,0 +1,13 @@
+fr:
+  activerecord:
+    models:
+      user: utilisateur
+      users: utilisateurs
+      game: jeu
+      games: jeux
+      campaign: campagne
+      campaigns: campagnes
+    attributes:
+      user:
+        name: nom d'affichage
+        email: courriel
