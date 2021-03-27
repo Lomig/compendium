@@ -1,0 +1,19 @@
+.dashboard {
+  .update_form {
+    max-width: 768px;
+
+    display: grid;
+    grid-template-columns: 230px minmax(0, 450px);
+    gap: 1rem;
+
+    align-items: center;
+
+    margin: 2rem 2rem 1rem;
+
+    .button {
+      grid-area: 4 / -2 / 5 / -1;
+      width: 100%;
+      margin: auto;
+    }
+  }
+}

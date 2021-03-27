@@ -2,7 +2,8 @@
 <section class="page-header"
          data-controller="page-header--component">
   <div class="banner"
-       style="background-image: url('<%= banner_path %>');">
+       style="background-image: url('<%= banner_path %>');"
+       data-page-header--component-target="banner">
   </div>
   <h1 class="name"><%= @model.name %></h1>
 

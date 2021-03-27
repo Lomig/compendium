@@ -1,1 +1,5 @@
-<%= link_to(@text, @url , class: "button inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition rounded shadow hover:shadow-lg focus:outline-none") %>
+<% if @type == :link %>
+  <%= link_to(@text, @url , class: classes) %>
+<% elsif @type == :submit %>
+  <%= submit_tag(@text, class: classes) %>
+<% end %>

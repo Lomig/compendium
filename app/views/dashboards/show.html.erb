@@ -1,12 +1,48 @@
 <%= component :page_header, model: current_user %>
 
-<section>
+<section class="dashboard">
   <h2>Mes informations</h2>
-  <%= form_with(model: current_user) do |f| %>
+  <%=
+    form_with(model: current_user,
+              class: "update_form",
+              data: {
+                'controller': 'auto-submit-form',
+                'auto-submit-form-target': 'form'
+              }) do |f|
+  %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%=
+      f.text_field(:name,
+                  'data-auto-submit-form-target': 'name',
+                  'data-action': 'keyup->auto-submit-form#submit'
+                  )
+    %>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%=
+      f.text_field(:email,
+                  'data-auto-submit-form-target': 'email',
+                  'data-action': 'keyup->auto-submit-form#submit'
+                  )
+    %>
   <% end %>
+</section>
+
+<section class="dashboard">
+  <h2>Changer mon mot de passe</h2>
   
+  <%= form_with(model: User.new, url: registration_path(:user), class: "update_form", html: { method: :put }) do |f| %>
+    <%#= render "devise/shared/error_messages", resource: current_user %>
+
+    <%= f.label :password, t('devise.passwords.edit.new_password') %>
+    <%= f.password_field :password, autocomplete: "new-password" %>
+
+
+    <%= f.label :password_confirmationt, t('devise.passwords.edit.confirm_new_password') %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+    <%= f.label :current_password, class: "pt-6" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "mt-6" %>
+
+    <%= component :button, text: t('devise.registrations.edit.update'), type: :submit %>
+  <% end %>
 </section>
